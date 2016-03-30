@@ -368,18 +368,18 @@ var jMap = {
 		}
 	},
 	create : {
-		element : function(type, classs, id, row) {
+		element : function(type, classs, id, data) {
 					var a = document.createElement(type) || document.createElement('div');
 					if(classs.length > 0) {a.className = classs;}
 					if(id.length > 0) {a.id = id;}
 					if(classs == 'issueHeadline') {
-						a.innerHTML = row.headline;
-						a.href = row.sourceRefUrl;
+						a.innerHTML = data.headline;
+						a.href = data.sourceRefUrl;
 						a.setAttribute('target', '_blank');
 					} else if (classs == 'details') {
-						a.innerHTML = row.details;
-					} else if (classs == 'reference' && row.sourceRef.length > 0) {
-						a.innerHTML = ' Date Reported: ' + row.sourceRef;
+						a.innerHTML = data.details;
+					} else if (classs == 'reference' && data.sourceRef.length > 0) {
+						a.innerHTML = ' Date Reported: ' + data.sourceRef;
 					}
 					return a;
 		},
